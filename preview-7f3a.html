@@ -1,11 +1,268 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fffdfb"><title>Dr Nabilah — PED OG Access</title><style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fffdfb;color:#244f7f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.hero{min-height:100svh;display:grid;place-items:center;padding:28px 22px;background:radial-gradient(circle at 50% 20%,#dff4ff 0,#fffdfb 58%);position:relative;overflow:hidden}.hero:before,.hero:after{content:"♥";position:absolute;color:#f78a91;font-size:28px;opacity:.45}.hero:before{top:11%;left:10%;transform:rotate(-14deg)}.hero:after{right:10%;bottom:13%;color:#a99bd8}.card{width:min(100%,430px);background:#fff;border:2px solid #c5e7f7;border-radius:32px;padding:38px 25px;box-shadow:0 18px 60px #7aa7c525;text-align:center}.mascots{font-size:30px;letter-spacing:8px;margin-bottom:12px}.eyebrow{font-size:11px;letter-spacing:.24em;font-weight:850;color:#6588ad}.name{font-size:36px;font-weight:900;margin:9px 0;color:#2b6097}.badge{display:inline-block;margin:10px 0 18px;padding:7px 14px;border-radius:999px;background:#e9e4fa;color:#6d5ca3;font-size:13px;font-weight:700}.muted{color:#68839e;line-height:1.55}.btn{border:0;border-radius:18px;width:100%;padding:16px 18px;margin-top:25px;background:#f57680;color:#fff;font-size:14px;font-weight:850;letter-spacing:.04em;box-shadow:0 9px 22px #f5768033}.story{display:none;max-width:600px;margin:auto;padding:50px 22px 80px}.story.show{display:block;animation:rise .5s ease}.mini{font-size:12px;font-weight:800;letter-spacing:.18em;color:#55aeb2}.story h1{font-size:34px;line-height:1.12;margin:9px 0 28px;color:#2b6097}.sketch{border:2px dashed #cbe8f4;border-radius:26px;background:#f5fbff;padding:24px;margin:0 0 28px;text-align:center}.portrait{width:118px;height:118px;border-radius:50%;margin:auto;background:linear-gradient(145deg,#fff,#e9edf0);border:6px solid white;box-shadow:0 5px 18px #45678920;display:grid;place-items:center;font-size:42px;color:#6c7b88}.sketch small{display:block;margin-top:12px;color:#7b91a6}.quote{background:#eef9ff;border-left:5px solid #55c7c3;padding:22px;border-radius:0 20px 20px 0;font-size:20px;line-height:1.5;color:#315d86;margin:28px 0}.story p{font-size:17px;line-height:1.75;color:#496a87}.note{background:#fff2f3;border-radius:22px;padding:22px;margin:28px 0;border:1px solid #ffd7da}.strong{font-size:20px!important;font-weight:850;color:#f06f79!important}.final{background:#55c7c3}.reveal{display:none;margin-top:22px;padding:22px;border-radius:22px;background:#faf7ff;border:2px solid #ddd3f4;text-align:center;font-weight:700;color:#6b5d9c}.footer{text-align:center;margin-top:48px;font-size:11px;color:#8ba0b4}.doodles{text-align:center;font-size:24px;letter-spacing:12px;margin:28px 0;color:#f57680}@keyframes rise{from{opacity:0;transform:translateY(14px)}}</style></head><body>
-<section class="hero"><div class="card"><div class="mascots">🐧 🧸 🐰</div><div class="eyebrow">PED OG ACCESS</div><div class="name">DR NABILAH</div><div class="badge">Clearance level: OG</div><div class="muted">Access does not expire after leaving PED.</div><button class="btn" onclick="auth()">AUTHENTICATE →</button><div class="footer">One last unnecessary Syahmi digitalisation project.</div></div></section>
-<main class="story" id="story"><div class="mini">AUTHENTICATION SUCCESSFUL</div><h1>Okay Dr, last webapp. Promise.</h1>
-<div class="sketch"><div class="portrait">✎</div><small>Dr Nabilah · PED OG</small></div>
-<div class="quote">“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”</div>
-<p>In retrospect… probably one of the more necessary interventions during my first few weeks here.</p>
-<div class="note"><p>Thank you for being one of the people who made the adjustment to PED a little easier — for answering all my random questions, entertaining all the unnecessary apps, checking in when things weren't going particularly well, and reminding me that adjusting takes time.</p><p>I probably never properly said thank you for that.</p></div>
-<p>All the best for your studies, Dr Nabilah.</p><p class="strong">PED is losing one of its real OGs. ♥</p><p>And yes, I still haven't chilled with the apps.</p>
-<div class="doodles">★ ♥ ✚ ♥ ★</div><button class="btn final" onclick="finish()">OKAY NOW YOU CAN PENCEN DENGAN TENANG</button><div class="reveal" id="reveal">Good luck, Dr. You’ll always have OG access here. ♥</div><div class="footer">PED HTA · OG access never expires</div></main>
-<script>function auth(){document.getElementById('story').classList.add('show');setTimeout(()=>document.getElementById('story').scrollIntoView({behavior:'smooth'}),80)}function finish(){const x=document.getElementById('reveal');x.style.display='block';x.scrollIntoView({behavior:'smooth',block:'center'})}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffdfb">
+<title>Dr Nabilah — PED Farewell</title>
+<style>
+:root{
+  --navy:#244f7f;--blue:#4f86ba;--sky:#dff3ff;--teal:#55c7c3;
+  --coral:#f57680;--lav:#a99bd8;--cream:#fffaf2;--ink:#456987;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#fffdfb;color:var(--navy);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;
+}
+.bg-orb{
+  position:fixed;border-radius:50%;filter:blur(2px);opacity:.28;pointer-events:none;z-index:0;
+  animation:drift 10s ease-in-out infinite alternate;
+}
+.o1{width:220px;height:220px;background:#d7efff;top:5%;left:-80px}
+.o2{width:180px;height:180px;background:#ffe1e4;right:-70px;top:34%;animation-delay:-3s}
+.o3{width:160px;height:160px;background:#e8e1fb;left:-60px;bottom:4%;animation-delay:-6s}
+
+.hero{
+  position:relative;z-index:1;min-height:100svh;display:grid;place-items:center;
+  padding:28px 22px;background:
+  radial-gradient(circle at 50% 15%,#e1f4ff 0,#fffdfb 56%);
+}
+.card{
+  width:min(100%,430px);background:#fff;border:2px solid #c8e8f7;
+  border-radius:32px;padding:36px 25px;text-align:center;
+  box-shadow:0 18px 60px #78a4c524;
+  opacity:0;transform:translateY(18px) scale(.985);
+  animation:cardIn .8s .15s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.kicker{
+  font-size:11px;letter-spacing:.24em;font-weight:850;color:#6f8eab;
+  opacity:0;animation:fadeUp .6s .45s forwards
+}
+.name{
+  font-size:38px;font-weight:900;margin:9px 0 4px;color:#2d6197;
+  opacity:0;animation:fadeUp .65s .6s forwards
+}
+.pedog{
+  display:inline-block;padding:7px 15px;border-radius:999px;
+  background:#fde4e7;color:#c84f59;font-weight:800;font-size:13px;
+  opacity:0;animation:fadeUp .65s .75s forwards
+}
+.sub{
+  margin-top:17px;color:#6a849d;line-height:1.55;
+  opacity:0;animation:fadeUp .65s .9s forwards
+}
+.auth{
+  border:0;width:100%;margin-top:25px;padding:16px 18px;border-radius:18px;
+  background:linear-gradient(90deg,#f77680,#ff8f96);color:#fff;
+  font-size:14px;font-weight:850;letter-spacing:.04em;cursor:pointer;
+  box-shadow:0 9px 24px #f5768032;
+  opacity:0;animation:fadeUp .65s 1.05s forwards;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.auth:active{transform:scale(.985)}
+.hint{font-size:11px;color:#9aabba;margin-top:18px;opacity:0;animation:fadeUp .6s 1.2s forwards}
+
+.story{position:relative;z-index:1;display:none;max-width:610px;margin:auto;padding:60px 22px 90px}
+.story.show{display:block}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+.headerline{font-size:11px;letter-spacing:.2em;font-weight:850;color:#55aeb2}
+.story h1{font-size:34px;line-height:1.12;margin:9px 0 28px;color:#2c6198}
+
+.photo{
+  margin:6px 0 30px;background:#fff;border:1px solid #d6e9f4;border-radius:24px;
+  padding:12px;box-shadow:0 16px 36px #5d83a31b;
+  transform:rotate(-1.2deg);
+}
+.photo-inner{
+  height:250px;border-radius:18px;background:
+  linear-gradient(145deg,#f7f7f5,#e8edf0);
+  display:grid;place-items:center;color:#7a8b98;font-size:46px;
+  position:relative;overflow:hidden;
+}
+.photo-inner:before{
+  content:"portrait";position:absolute;bottom:15px;right:18px;
+  font-size:12px;letter-spacing:.12em;color:#8b99a5
+}
+.caption{text-align:right;font-family:"Comic Sans MS","Bradley Hand",cursive;color:#5079a1;margin:8px 4px 0}
+
+.hand{
+  font-family:"Comic Sans MS","Bradley Hand",cursive;font-size:30px;color:#315e8e;
+  margin:8px 0 10px;
+}
+.stroke{
+  height:8px;width:0;background:#dff2ff;border-radius:999px;margin:-6px 0 18px;
+  transition:width .9s ease;
+}
+.visible .stroke{width:76%}
+
+.quote{
+  background:#eef9ff;border-left:5px solid var(--teal);padding:22px;
+  border-radius:0 20px 20px 0;font-size:20px;line-height:1.5;color:#315d86;margin:25px 0;
+  position:relative;
+}
+.quote-text{visibility:hidden}
+.quote.typing .quote-text{visibility:visible}
+.cursor{display:inline-block;width:2px;height:1em;background:#315d86;margin-left:3px;vertical-align:-2px;animation:blink .8s steps(1) infinite}
+
+.message{
+  background:#fff4f5;border:1px solid #ffdadd;border-radius:22px;padding:22px;margin:28px 0;
+}
+.story p{font-size:17px;line-height:1.75;color:#496a87;margin:14px 0}
+.og{font-size:20px!important;font-weight:850;color:#ef6d77!important}
+
+.final{
+  width:100%;border:0;border-radius:22px;padding:18px;margin-top:30px;
+  background:linear-gradient(90deg,#4fc3c0,#67d2cd);color:#fff;
+  font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 10px 24px #55c7c332;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.final:hover{transform:translateY(-1px)}
+.final:active{transform:scale(.985)}
+.after{
+  display:none;margin-top:22px;padding:23px;border-radius:22px;
+  background:#faf7ff;border:2px solid #ddd3f4;text-align:center;
+  font-weight:750;color:#6b5d9c;animation:pop .5s cubic-bezier(.2,.9,.2,1)
+}
+.footer{text-align:center;margin-top:52px;font-size:11px;letter-spacing:.08em;color:#8ba0b4}
+
+.spark{position:fixed;z-index:10;pointer-events:none;font-size:18px;animation:burst 900ms ease-out forwards}
+.float{
+  position:absolute;font-size:22px;opacity:.35;animation:floaty 4s ease-in-out infinite;
+}
+.f1{left:8%;top:18%;color:#f57680}.f2{right:10%;top:31%;color:#a99bd8;animation-delay:-1s}
+.f3{left:12%;bottom:12%;color:#55c7c3;animation-delay:-2s}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .card,.kicker,.name,.pedog,.sub,.auth,.hint,.reveal{opacity:1!important;transform:none!important}
+}
+
+@keyframes cardIn{to{opacity:1;transform:none}}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes drift{to{transform:translate(25px,18px) scale(1.06)}}
+@keyframes floaty{50%{transform:translateY(-10px) rotate(5deg)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
+@keyframes burst{
+  0%{opacity:1;transform:translate(0,0) scale(.7) rotate(0)}
+  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3) rotate(180deg)}
+}
+</style>
+</head>
+<body>
+<div class="bg-orb o1"></div><div class="bg-orb o2"></div><div class="bg-orb o3"></div>
+
+<section class="hero">
+  <div class="float f1">♥</div><div class="float f2">✦</div><div class="float f3">✚</div>
+  <div class="card">
+    <div class="kicker">A FAREWELL TO</div>
+    <div class="name">DR NABILAH</div>
+    <div class="pedog">PED OG</div>
+    <div class="sub">Thank you for being part of my PED journey.</div>
+    <button class="auth" onclick="enterStory()">AUTHENTICATE →</button>
+    <div class="hint">One last unnecessary Syahmi digitalisation project.</div>
+  </div>
+</section>
+
+<main class="story" id="story">
+  <section class="reveal">
+    <div class="headerline">AUTHENTICATION SUCCESSFUL</div>
+    <div class="hand">Okay Dr, last webapp. Promise.</div>
+    <div class="stroke"></div>
+  </section>
+
+  <section class="reveal photo">
+    <div class="photo-inner">✎</div>
+    <div class="caption">Dr Nabilah</div>
+  </section>
+
+  <section class="reveal">
+    <p>You once told me:</p>
+    <div class="quote" id="quote">
+      <span class="quote-text" id="quoteText"></span><span class="cursor" id="cursor"></span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <p>In retrospect… probably one of the more necessary interventions during my first few weeks here.</p>
+  </section>
+
+  <section class="reveal message">
+    <p>Thank you for being one of the people who made the adjustment to PED a little easier — for answering all my random questions, entertaining all the unnecessary apps, checking in when things weren't going particularly well, and reminding me that adjusting takes time.</p>
+    <p>I probably never properly said thank you for that.</p>
+  </section>
+
+  <section class="reveal">
+    <p>All the best for your studies, Dr Nabilah.</p>
+    <p class="og">PED is losing one of its real OGs.</p>
+    <p>And yes, I still haven't chilled with the apps.</p>
+  </section>
+
+  <section class="reveal">
+    <button class="final" onclick="finishFarewell(event)">OKAY NOW YOU CAN PENCEN DENGAN TENANG</button>
+    <div class="after" id="after">Good luck, Dr. You’ll always have OG access here.</div>
+    <div class="footer">PED HTA · New chapter, same impact.</div>
+  </section>
+</main>
+
+<script>
+const q='“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”';
+let typed=false;
+
+function enterStory(){
+  const s=document.getElementById('story');
+  s.classList.add('show');
+  setTimeout(()=>s.scrollIntoView({behavior:'smooth'}),80);
+  setTimeout(observeSections,120);
+}
+function observeSections(){
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        if(e.target.querySelector && e.target.querySelector('#quote') && !typed){
+          typed=true; typeQuote();
+        }
+      }
+    });
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+}
+function typeQuote(){
+  const el=document.getElementById('quoteText');
+  const box=document.getElementById('quote');
+  box.classList.add('typing');
+  let i=0;
+  const tick=()=>{
+    el.textContent=q.slice(0,i++);
+    if(i<=q.length) setTimeout(tick,28);
+    else document.getElementById('cursor').style.display='none';
+  };
+  tick();
+}
+function finishFarewell(ev){
+  const a=document.getElementById('after');
+  a.style.display='block';
+  a.scrollIntoView({behavior:'smooth',block:'center'});
+  const symbols=['♥','✦','★','✚'];
+  const r=ev.currentTarget.getBoundingClientRect();
+  const cx=r.left+r.width/2,cy=r.top+r.height/2;
+  for(let i=0;i<18;i++){
+    const s=document.createElement('span');
+    s.className='spark';s.textContent=symbols[i%symbols.length];
+    s.style.left=cx+'px';s.style.top=cy+'px';
+    const ang=Math.random()*Math.PI*2,dist=70+Math.random()*110;
+    s.style.setProperty('--x',Math.cos(ang)*dist+'px');
+    s.style.setProperty('--y',Math.sin(ang)*dist+'px');
+    s.style.color=['#f57680','#55c7c3','#a99bd8','#f2b84b'][i%4];
+    document.body.appendChild(s);setTimeout(()=>s.remove(),950);
+  }
+}
+</script>
+</body>
+</html>
