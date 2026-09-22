@@ -58,3 +58,11 @@ body.sheet-open{overflow:hidden}
 .catalog-divider{height:1px;background:#e8eff4;margin:18px 0}
 .surprise-label{font-size:10px;letter-spacing:.12em;font-weight:900;color:#a18126;margin-bottom:5px}
 .web-pick a{display:inline-block;margin-top:7px;color:#315f8c;font-weight:900;text-decoration:none}
+
+.music-control{position:fixed;z-index:75;top:calc(14px + env(safe-area-inset-top));right:14px;display:flex;align-items:center;gap:7px}
+.music-control .sound-toggle{position:static}
+.captions-toggle{border:1px solid #d8e7f1;border-radius:999px;padding:10px;background:rgba(255,255,255,.92);color:#527692;font-size:11px;font-weight:900;backdrop-filter:blur(9px);box-shadow:0 8px 22px rgba(66,103,132,.12)}
+.lyric-bar{position:fixed;z-index:76;left:50%;bottom:calc(19px + env(safe-area-inset-bottom));width:min(calc(100% - 35px),520px);padding:13px 18px;text-align:center;color:#315c85;background:rgba(255,255,255,.95);border:1px solid #d4eafa;border-radius:19px;box-shadow:0 9px 34px rgba(74,120,155,.14);font-size:14px;font-weight:750;line-height:1.5;opacity:0;pointer-events:none;transform:translate(-50%,12px);transition:opacity .35s ease,transform .35s ease}
+.lyric-bar.visible{opacity:1;transform:translate(-50%,0)}
+.caption-in{animation:captionIn .45s ease}
+@keyframes captionIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
