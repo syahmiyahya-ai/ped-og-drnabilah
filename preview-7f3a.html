@@ -32,7 +32,7 @@
 <div class="gift-grid">
 <button class="gift-card" onclick="openGift('study')"><div class="gift-icon">📚</div><div class="gift-title">For studying</div><div class="gift-sub">A Claude-ready prompt pack for the next chapter.</div></button>
 <button class="gift-card" onclick="openGift('rough')"><div class="gift-icon">☁️</div><div class="gift-title">For rough days</div><div class="gift-sub">Something small to reopen when the day feels heavy.</div></button>
-<button class="gift-card" onclick="openGift('ped')"><div class="gift-icon">📱</div><div class="gift-title">For remembering PED</div><div class="gift-sub">A little phone keepsake you can save.</div></button>
+<button class="gift-card" onclick="openGift('web')"><div class="gift-icon">🌐</div><div class="gift-title">Powerful websites</div><div class="gift-sub">A tiny internet drawer of sites worth knowing.</div></button>
 <button class="gift-card" onclick="openGift('pro')"><div class="gift-icon">🧪</div><div class="gift-title">For procrastinating</div><div class="gift-sub">A completely unnecessary app approval system.</div></button>
 </div>
 
@@ -50,9 +50,21 @@
 <p>Sometimes getting through the day is enough. The rest can wait until tomorrow.</p>
 </div></div>
 
-<div class="drawer" id="gift-ped"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>A tiny PED keepsake</h3><p>A simple phone wallpaper for the next chapter.</p>
-<div class="wallpaper-preview"><div><strong>DR NABILAH</strong><br><small>PED OG</small><br><br>New chapter.<br>Same impact.<br><br><small>PED HTA</small></div></div>
-<a href="dr-nabilah-wallpaper.svg" download="dr-nabilah-ped-og-wallpaper.svg"><button class="smallbtn">SAVE WALLPAPER</button></a>
+<div class="drawer" id="gift-web"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button>
+<h3>🌐 Powerful Websites</h3>
+<p>A small Internet Drawer: useful, weird, beautiful, or oddly specific websites that make you go, “wait… this exists?”</p>
+<div class="web-list">
+<a class="web-item" href="https://www.krea.ai/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Krea</span><span class="web-badge">🪄 MAGIC</span></div><div class="web-desc">Real-time AI visuals and image manipulation.</div></a>
+<a class="web-item" href="https://palette.fm/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Palette.fm</span><span class="web-badge">💎 GEM</span></div><div class="web-desc">Colourise old black-and-white photos with AI.</div></a>
+<a class="web-item" href="https://asoftmurmur.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">A Soft Murmur</span><span class="web-badge">🧰 KEEP THIS</span></div><div class="web-desc">Mix rain, thunder, waves and ambient sounds for focus.</div></a>
+<a class="web-item" href="https://stellarium-web.org/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Stellarium Web</span><span class="web-badge">🐇 RABBIT HOLE</span></div><div class="web-desc">An interactive planetarium in your browser.</div></a>
+<a class="web-item" href="https://artsandculture.google.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Google Arts & Culture</span><span class="web-badge">🌍 EXPLORE</span></div><div class="web-desc">Museums, artworks and cultural collections from around the world.</div></a>
+<a class="web-item" href="https://ncase.me/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Ncase</span><span class="web-badge">🧠 LEARN</span></div><div class="web-desc">Interactive explanations of surprisingly deep ideas.</div></a>
+<a class="web-item" href="https://musiclab.chromeexperiments.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Chrome Music Lab</span><span class="web-badge">🎧 PLAY</span></div><div class="web-desc">Small, playful experiments with music and sound.</div></a>
+<a class="web-item" href="https://theuselessweb.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">The Useless Web</span><span class="web-badge">🗑️ UNHINGED</span></div><div class="web-desc">One button. Somewhere gloriously pointless.</div></a>
+</div>
+<button class="web-random" onclick="pickWebsite()">SURPRISE ME</button>
+<div class="web-pick" id="webPick"></div>
 </div>
 
 <div class="drawer" id="gift-pro"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>Syahmi App Approval System™</h3><div class="lab"><p>Proposed intervention:</p><strong>Build another unnecessary webapp</strong><br><br>
@@ -117,6 +129,22 @@ document.querySelectorAll('.drawer').forEach(d=>{
     if(moved>95)closeGift();
   },{passive:true});
 });
+function pickWebsite(){
+ const picks=[
+  ['Krea','https://www.krea.ai/','Make something unnecessarily pretty with AI.'],
+  ['Palette.fm','https://palette.fm/','Bring an old black-and-white photo back to colour.'],
+  ['A Soft Murmur','https://asoftmurmur.com/','Build your ideal rain/thunder/focus soundscape.'],
+  ['Stellarium Web','https://stellarium-web.org/','Point a browser planetarium at tonight’s sky.'],
+  ['Google Arts & Culture','https://artsandculture.google.com/','Fall into a museum rabbit hole from your phone.'],
+  ['Ncase','https://ncase.me/','Interactive explainers that are much better than they need to be.'],
+  ['Chrome Music Lab','https://musiclab.chromeexperiments.com/','Waste five minutes making sounds. Possibly more.'],
+  ['The Useless Web','https://theuselessweb.com/','No clinical indication whatsoever.']
+ ];
+ const p=picks[Math.floor(Math.random()*picks.length)];
+ const box=document.getElementById('webPick');
+ box.innerHTML='<strong>'+p[0]+'</strong><br>'+p[2]+'<br><a href="'+p[1]+'" target="_blank" rel="noopener">OPEN WEBSITE →</a>';
+ box.classList.add('show');
+}
 function showFinale(){playFinale();const f=document.getElementById('finale');f.classList.add('show');f.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';f.scrollTop=0}
 function closeFinale(){const f=document.getElementById('finale');f.classList.remove('show');f.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 
