@@ -36,26 +36,26 @@
 <button class="gift-card" onclick="openGift('pro')"><div class="gift-icon">🧪</div><div class="gift-title">For procrastinating</div><div class="gift-sub">A completely unnecessary app approval system.</div></button>
 </div>
 
-<div class="drawer" id="gift-study"><h3>Claude Study Pack</h3><p>Tap and hold any prompt to copy it into Claude.</p>
+<div class="drawer" id="gift-study"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>Claude Study Pack</h3><p>Tap and hold any prompt to copy it into Claude.</p>
 <div class="prompt"><div class="prompt-title">Critical appraisal</div><div class="prompt-text">Act as my critical appraisal partner. Read the paper I provide and summarise the research question, PICO, study design, population, key outcomes, effect sizes, confidence intervals, major biases, important limitations, external validity, and what would or would not change practice. Separate what the paper actually shows from interpretation.</div></div>
 <div class="prompt"><div class="prompt-title">High-yield revision</div><div class="prompt-text">Turn the material I provide into a high-yield study sheet. Start with the core concepts I must understand, then red flags, common pitfalls, decision points, and a concise recall section. Finish by testing me with five progressively harder questions without immediately giving the answers.</div></div>
 <div class="prompt"><div class="prompt-title">Presentation builder</div><div class="prompt-text">Help me build a concise teaching presentation on this topic. Give me a logical slide sequence, the single teaching point for each slide, suggested visuals, likely audience questions, and a short speaker note for each section. Keep it clinically useful and flag claims that need primary-source verification.</div></div>
 <div class="prompt"><div class="prompt-title">Viva mode</div><div class="prompt-text">Quiz me viva-style on this topic one question at a time. Do not reveal the full answer before I respond. Challenge vague answers, ask for reasoning, and escalate difficulty. At the end, summarise my weak areas and give me a targeted revision list.</div></div>
 </div>
 
-<div class="drawer" id="gift-rough"><h3>For one of those days</h3><div class="goodday">
+<div class="drawer" id="gift-rough"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>For one of those days</h3><div class="goodday">
 <p>You once made one of my difficult days a little lighter simply by noticing and asking if I was okay.</p>
 <p>So this is the reminder back:</p>
 <p><strong>You don't always have to have everything figured out on the difficult days.</strong></p>
 <p>Sometimes getting through the day is enough. The rest can wait until tomorrow.</p>
 </div></div>
 
-<div class="drawer" id="gift-ped"><h3>A tiny PED keepsake</h3><p>A simple phone wallpaper for the next chapter.</p>
+<div class="drawer" id="gift-ped"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>A tiny PED keepsake</h3><p>A simple phone wallpaper for the next chapter.</p>
 <div class="wallpaper-preview"><div><strong>DR NABILAH</strong><br><small>PED OG</small><br><br>New chapter.<br>Same impact.<br><br><small>PED HTA</small></div></div>
 <a href="dr-nabilah-wallpaper.svg" download="dr-nabilah-ped-og-wallpaper.svg"><button class="smallbtn">SAVE WALLPAPER</button></a>
 </div>
 
-<div class="drawer" id="gift-pro"><h3>Syahmi App Approval System™</h3><div class="lab"><p>Proposed intervention:</p><strong>Build another unnecessary webapp</strong><br><br>
+<div class="drawer" id="gift-pro"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>Syahmi App Approval System™</h3><div class="lab"><p>Proposed intervention:</p><strong>Build another unnecessary webapp</strong><br><br>
 <button onclick="document.getElementById('result').textContent='Recommendation: NO — “Syahmi, chill2 dulu.. belajar clinical management dulu hahaha.”'">RUN CLINICAL GOVERNANCE CHECK</button>
 <div class="result" id="result">Awaiting review…</div></div></div>
 </section>
@@ -64,7 +64,7 @@
 <div class="footer">PED HTA · One last unnecessary digitalisation project.</div></section>
 </main></div>
 
-<section class="finale" id="finale" aria-hidden="true"><div class="finale-inner">
+<div class="sheet-backdrop" id="sheetBackdrop" onclick="closeGift()"></div>\n\n<section class="finale" id="finale" aria-hidden="true"><div class="finale-inner">
 <div class="final-name">DR NABILAH · PED HTA</div>
 <div class="final-line">There’s one thing I don’t think I ever properly thanked you for.</div>
 <div class="final-line">There was a point when I was having a really bad time adjusting to PED.</div>
