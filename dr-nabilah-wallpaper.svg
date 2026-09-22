@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1179" height="2556" viewBox="0 0 1179 2556">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#DFF3FF"/><stop offset=".55" stop-color="#FFFDFB"/><stop offset="1" stop-color="#FFF0F2"/></linearGradient></defs>
+<rect width="1179" height="2556" fill="url(#g)"/>
+<circle cx="105" cy="390" r="190" fill="#D5EEFF" opacity=".55"/><circle cx="1105" cy="930" r="210" fill="#F9DCE1" opacity=".48"/><circle cx="80" cy="2140" r="180" fill="#E8E1FA" opacity=".52"/>
+<text x="589.5" y="980" text-anchor="middle" font-family="Arial,sans-serif" font-size="54" letter-spacing="10" fill="#7190AA">PED OG</text>
+<text x="589.5" y="1090" text-anchor="middle" font-family="Arial,sans-serif" font-size="104" font-weight="700" fill="#2B6095">DR NABILAH</text>
+<rect x="395" y="1140" width="389" height="8" rx="4" fill="#55C7C3"/>
+<text x="589.5" y="1300" text-anchor="middle" font-family="Arial,sans-serif" font-size="51" fill="#496B86">New chapter.</text>
+<text x="589.5" y="1380" text-anchor="middle" font-family="Arial,sans-serif" font-size="51" fill="#496B86">Same impact.</text>
+<text x="589.5" y="1555" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" letter-spacing="7" fill="#8AA1B4">PED HTA</text>
+</svg>
