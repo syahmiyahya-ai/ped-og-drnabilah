@@ -1,276 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fffdfb">
-<title>Dr Nabilah — PED Farewell</title>
-<style>
-:root{
-  --navy:#244f7f;--blue:#4f86ba;--sky:#dff3ff;--teal:#55c7c3;
-  --coral:#f57680;--lav:#a99bd8;--cream:#fffaf2;--ink:#456987;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:#fffdfb;color:var(--navy);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow-x:hidden;
-}
-.bg-orb{
-  position:fixed;border-radius:50%;filter:blur(2px);opacity:.28;pointer-events:none;z-index:0;
-  animation:drift 10s ease-in-out infinite alternate;
-}
-.o1{width:220px;height:220px;background:#d7efff;top:5%;left:-80px}
-.o2{width:180px;height:180px;background:#ffe1e4;right:-70px;top:34%;animation-delay:-3s}
-.o3{width:160px;height:160px;background:#e8e1fb;left:-60px;bottom:4%;animation-delay:-6s}
-
-.hero{
-  position:relative;z-index:1;min-height:100svh;display:grid;place-items:center;
-  padding:28px 22px;background:
-  radial-gradient(circle at 50% 15%,#e1f4ff 0,#fffdfb 56%);
-}
-.card{
-  width:min(100%,430px);background:#fff;border:2px solid #c8e8f7;
-  border-radius:32px;padding:36px 25px;text-align:center;
-  box-shadow:0 18px 60px #78a4c524;
-  opacity:0;transform:translateY(18px) scale(.985);
-  animation:cardIn .8s .15s cubic-bezier(.2,.8,.2,1) forwards;
-}
-.kicker{
-  font-size:11px;letter-spacing:.24em;font-weight:850;color:#6f8eab;
-  opacity:0;animation:fadeUp .6s .45s forwards
-}
-.name{
-  font-size:38px;font-weight:900;margin:9px 0 4px;color:#2d6197;
-  opacity:0;animation:fadeUp .65s .6s forwards
-}
-.pedog{
-  display:inline-block;padding:7px 15px;border-radius:999px;
-  background:#fde4e7;color:#c84f59;font-weight:800;font-size:13px;
-  opacity:0;animation:fadeUp .65s .75s forwards
-}
-.sub{
-  margin-top:17px;color:#6a849d;line-height:1.55;
-  opacity:0;animation:fadeUp .65s .9s forwards
-}
-.auth{
-  border:0;width:100%;margin-top:25px;padding:16px 18px;border-radius:18px;
-  background:linear-gradient(90deg,#f77680,#ff8f96);color:#fff;
-  font-size:14px;font-weight:850;letter-spacing:.04em;cursor:pointer;
-  box-shadow:0 9px 24px #f5768032;
-  opacity:0;animation:fadeUp .65s 1.05s forwards;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.auth:active{transform:scale(.985)}
-.hint{font-size:11px;color:#9aabba;margin-top:18px;opacity:0;animation:fadeUp .6s 1.2s forwards}
-
-.story{position:relative;z-index:1;display:none;max-width:610px;margin:auto;padding:60px 22px 90px}
-.story.show{display:block}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
-
-.headerline{font-size:11px;letter-spacing:.2em;font-weight:850;color:#55aeb2}
-.story h1{font-size:34px;line-height:1.12;margin:9px 0 28px;color:#2c6198}
-
-.photo{
-  margin:6px 0 30px;background:#fff;border:1px solid #d6e9f4;border-radius:24px;
-  padding:12px;box-shadow:0 16px 36px #5d83a31b;
-  transform:rotate(-1.2deg);
-}
-.photo-inner{
-  height:250px;border-radius:18px;background:
-  linear-gradient(145deg,#f7f7f5,#e8edf0);
-  display:grid;place-items:center;color:#7a8b98;font-size:46px;
-  position:relative;overflow:hidden;
-}
-.photo-inner:before{
-  content:"portrait";position:absolute;bottom:15px;right:18px;
-  font-size:12px;letter-spacing:.12em;color:#8b99a5
-}
-.caption{text-align:right;font-family:"Comic Sans MS","Bradley Hand",cursive;color:#5079a1;margin:8px 4px 0}
-
-.hand{
-  font-family:"Comic Sans MS","Bradley Hand",cursive;font-size:30px;color:#315e8e;
-  margin:8px 0 10px;
-}
-.stroke{
-  height:8px;width:0;background:#dff2ff;border-radius:999px;margin:-6px 0 18px;
-  transition:width .9s ease;
-}
-.visible .stroke{width:76%}
-
-.quote{
-  background:#eef9ff;border-left:5px solid var(--teal);padding:22px;
-  border-radius:0 20px 20px 0;font-size:20px;line-height:1.5;color:#315d86;margin:25px 0;
-  position:relative;
-}
-.quote-text{visibility:hidden}
-.quote.typing .quote-text{visibility:visible}
-.cursor{display:inline-block;width:2px;height:1em;background:#315d86;margin-left:3px;vertical-align:-2px;animation:blink .8s steps(1) infinite}
-
-.message{
-  background:#fff4f5;border:1px solid #ffdadd;border-radius:22px;padding:22px;margin:28px 0;
-}
-.story p{font-size:17px;line-height:1.75;color:#496a87;margin:14px 0}
-.og{font-size:20px!important;font-weight:850;color:#ef6d77!important}
-
-.final{
-  width:100%;border:0;border-radius:22px;padding:18px;margin-top:30px;
-  background:linear-gradient(90deg,#4fc3c0,#67d2cd);color:#fff;
-  font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 10px 24px #55c7c332;
-  transition:transform .25s ease,box-shadow .25s ease;
-}
-.final:hover{transform:translateY(-1px)}
-.final:active{transform:scale(.985)}
-.after{
-  display:none;margin-top:22px;padding:23px;border-radius:22px;
-  background:#faf7ff;border:2px solid #ddd3f4;text-align:center;
-  font-weight:750;color:#6b5d9c;animation:pop .5s cubic-bezier(.2,.9,.2,1)
-}
-.footer{text-align:center;margin-top:52px;font-size:11px;letter-spacing:.08em;color:#8ba0b4}
-
-.spark{position:fixed;z-index:10;pointer-events:none;font-size:18px;animation:burst 900ms ease-out forwards}
-.float{
-  position:absolute;font-size:22px;opacity:.35;animation:floaty 4s ease-in-out infinite;
-}
-.f1{left:8%;top:18%;color:#f57680}.f2{right:10%;top:31%;color:#a99bd8;animation-delay:-1s}
-.f3{left:12%;bottom:12%;color:#55c7c3;animation-delay:-2s}
-
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important}
-  .card,.kicker,.name,.pedog,.sub,.auth,.hint,.reveal{opacity:1!important;transform:none!important}
-}
-
-@keyframes cardIn{to{opacity:1;transform:none}}
-@keyframes fadeUp{to{opacity:1;transform:none}}
-@keyframes drift{to{transform:translate(25px,18px) scale(1.06)}}
-@keyframes floaty{50%{transform:translateY(-10px) rotate(5deg)}}
-@keyframes blink{50%{opacity:0}}
-@keyframes pop{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
-@keyframes burst{
-  0%{opacity:1;transform:translate(0,0) scale(.7) rotate(0)}
-  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3) rotate(180deg)}
-}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffdfb"><title>Dr Nabilah — One Last Webapp</title>
+<link rel="stylesheet" href="gift.css">
 </head>
 <body>
-<div class="bg-orb o1"></div><div class="bg-orb o2"></div><div class="bg-orb o3"></div>
-
-<section class="hero">
-  <div class="float f1">♥</div><div class="float f2">✦</div><div class="float f3">✚</div>
-  <div class="card">
-    <div class="kicker">A FAREWELL TO</div>
-    <div class="name">DR NABILAH</div>
-    <div class="pedog">PED OG</div>
-    <div class="sub">Thank you for being part of my PED journey.</div>
-    <button class="auth" onclick="enterStory()">AUTHENTICATE →</button>
-    <div class="hint">One last unnecessary Syahmi digitalisation project.</div>
-  </div>
-</section>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="wrap">
+<section class="hero"><div class="hero-card">
+<div class="kicker">A FAREWELL TO</div><h1>DR NABILAH</h1><div class="tag">PED OG</div>
+<p>Thank you for being part of my PED journey.</p>
+<button class="primary" onclick="enterStory()">AUTHENTICATE →</button>
+<div class="micro">One last unnecessary Syahmi digitalisation project.</div>
+</div></section>
 
 <main class="story" id="story">
-  <section class="reveal">
-    <div class="headerline">AUTHENTICATION SUCCESSFUL</div>
-    <div class="hand">Okay Dr, last webapp. Promise.</div>
-    <div class="stroke"></div>
-  </section>
+<section class="reveal"><div class="section-label">AUTHENTICATION SUCCESSFUL</div><div class="hand">Okay Dr, last webapp. Promise.</div><div class="stroke"></div></section>
 
-  <section class="reveal photo">
-    <div class="photo-inner">✎</div>
-    <div class="caption">Dr Nabilah</div>
-  </section>
+<section class="reveal"><p>You once told me:</p><div class="quote" id="quote"><span class="typed" id="typed"></span><span class="cursor" id="cursor"></span></div></section>
 
-  <section class="reveal">
-    <p>You once told me:</p>
-    <div class="quote" id="quote">
-      <span class="quote-text" id="quoteText"></span><span class="cursor" id="cursor"></span>
-    </div>
-  </section>
+<section class="reveal"><p>In retrospect… probably one of the more necessary interventions during my first few weeks here.</p></section>
 
-  <section class="reveal">
-    <p>In retrospect… probably one of the more necessary interventions during my first few weeks here.</p>
-  </section>
+<section class="reveal note"><p>Thank you for being one of the people who made the adjustment to PED a little easier — for answering all my random questions, entertaining all the unnecessary apps, checking in when things weren't going particularly well, and reminding me that adjusting takes time.</p><p>I probably never properly said thank you for that.</p></section>
 
-  <section class="reveal message">
-    <p>Thank you for being one of the people who made the adjustment to PED a little easier — for answering all my random questions, entertaining all the unnecessary apps, checking in when things weren't going particularly well, and reminding me that adjusting takes time.</p>
-    <p>I probably never properly said thank you for that.</p>
-  </section>
+<section class="reveal"><p>All the best for your studies, Dr Nabilah.</p><p class="og">PED is losing one of its real OGs.</p><p>And yes, I still haven't chilled with the apps.</p></section>
 
-  <section class="reveal">
-    <p>All the best for your studies, Dr Nabilah.</p>
-    <p class="og">PED is losing one of its real OGs.</p>
-    <p>And yes, I still haven't chilled with the apps.</p>
-  </section>
+<section class="gifts reveal">
+<div class="section-label">BONUS CONTENT UNLOCKED</div><h2>One more thing.</h2>
+<p class="lead">Since apparently a normal farewell card wasn't enough.</p>
+<div class="gift-grid">
+<button class="gift-card" onclick="openGift('study')"><div class="gift-icon">📚</div><div class="gift-title">For studying</div><div class="gift-sub">A Claude-ready prompt pack for the next chapter.</div></button>
+<button class="gift-card" onclick="openGift('rough')"><div class="gift-icon">☁️</div><div class="gift-title">For rough days</div><div class="gift-sub">Something small to reopen when the day feels heavy.</div></button>
+<button class="gift-card" onclick="openGift('ped')"><div class="gift-icon">📱</div><div class="gift-title">For remembering PED</div><div class="gift-sub">A little phone keepsake you can save.</div></button>
+<button class="gift-card" onclick="openGift('pro')"><div class="gift-icon">🧪</div><div class="gift-title">For procrastinating</div><div class="gift-sub">A completely unnecessary app approval system.</div></button>
+</div>
 
-  <section class="reveal">
-    <button class="final" onclick="finishFarewell(event)">OKAY DR, ONE LAST THING…</button>
-    <div class="after" id="after">Thank you, Dr Nabilah.<br><br>
-  For noticing.<br>
-  For asking.<br>
-  For listening.<br><br>
-  And for being one of the people who made PED feel a little easier when I was still trying to find my feet here.<br><br>
-  I don’t think I ever properly told you how much that meant to me.<br><br>
-  All the best for your studies and for this next chapter.<br><br>
-  <strong>PED is losing one of its real OGs.</strong><br><br>
-  You’ll be missed here.</div>
-    <div class="footer">Dr Nabilah · PED HTA</div>
-  </section>
-</main>
+<div class="drawer" id="gift-study"><h3>Claude Study Pack</h3><p>Tap and hold any prompt to copy it into Claude.</p>
+<div class="prompt"><div class="prompt-title">Critical appraisal</div><div class="prompt-text">Act as my critical appraisal partner. Read the paper I provide and summarise the research question, PICO, study design, population, key outcomes, effect sizes, confidence intervals, major biases, important limitations, external validity, and what would or would not change practice. Separate what the paper actually shows from interpretation.</div></div>
+<div class="prompt"><div class="prompt-title">High-yield revision</div><div class="prompt-text">Turn the material I provide into a high-yield study sheet. Start with the core concepts I must understand, then red flags, common pitfalls, decision points, and a concise recall section. Finish by testing me with five progressively harder questions without immediately giving the answers.</div></div>
+<div class="prompt"><div class="prompt-title">Presentation builder</div><div class="prompt-text">Help me build a concise teaching presentation on this topic. Give me a logical slide sequence, the single teaching point for each slide, suggested visuals, likely audience questions, and a short speaker note for each section. Keep it clinically useful and flag claims that need primary-source verification.</div></div>
+<div class="prompt"><div class="prompt-title">Viva mode</div><div class="prompt-text">Quiz me viva-style on this topic one question at a time. Do not reveal the full answer before I respond. Challenge vague answers, ask for reasoning, and escalate difficulty. At the end, summarise my weak areas and give me a targeted revision list.</div></div>
+</div>
+
+<div class="drawer" id="gift-rough"><h3>For one of those days</h3><div class="goodday">
+<p>You once made one of my difficult days a little lighter simply by noticing and asking if I was okay.</p>
+<p>So this is the reminder back:</p>
+<p><strong>You don't always have to have everything figured out on the difficult days.</strong></p>
+<p>Sometimes getting through the day is enough. The rest can wait until tomorrow.</p>
+</div></div>
+
+<div class="drawer" id="gift-ped"><h3>A tiny PED keepsake</h3><p>A simple phone wallpaper for the next chapter.</p>
+<div class="wallpaper-preview"><div><strong>DR NABILAH</strong><br><small>PED OG</small><br><br>New chapter.<br>Same impact.<br><br><small>PED HTA</small></div></div>
+<a href="dr-nabilah-wallpaper.svg" download="dr-nabilah-ped-og-wallpaper.svg"><button class="smallbtn">SAVE WALLPAPER</button></a>
+</div>
+
+<div class="drawer" id="gift-pro"><h3>Syahmi App Approval System™</h3><div class="lab"><p>Proposed intervention:</p><strong>Build another unnecessary webapp</strong><br><br>
+<button onclick="document.getElementById('result').textContent='Recommendation: NO — “Syahmi, chill2 dulu.. belajar clinical management dulu hahaha.”'">RUN CLINICAL GOVERNANCE CHECK</button>
+<div class="result" id="result">Awaiting review…</div></div></div>
+</section>
+
+<section class="final-cta reveal"><button class="final-btn" onclick="showFinale()">OKAY DR, ONE LAST THING…</button>
+<div class="footer">PED HTA · One last unnecessary digitalisation project.</div></section>
+</main></div>
+
+<section class="finale" id="finale" aria-hidden="true"><div class="finale-inner">
+<div class="final-name">DR NABILAH · PED HTA</div>
+<div class="final-line">There’s one thing I don’t think I ever properly thanked you for.</div>
+<div class="final-line">There was a point when I was having a really bad time adjusting to PED.</div>
+<div class="final-line">You noticed.</div>
+<div class="final-line">You asked me if I was okay.</div>
+<div class="final-line">And somehow, that was the moment everything I had been holding in just came out.</div>
+<div class="final-line">I don’t know if you realised how much that meant to me. You didn’t have to fix anything. You just noticed, asked, and listened.</div>
+<div class="final-line">And when I was still trying to figure out whether I even belonged here, you were one of the people who made PED feel a little easier.</div>
+<div class="final-line em">So, genuinely — thank you, Dr Nabilah.</div>
+<div class="final-line">All the best for your studies and whatever comes next. PED is losing one of its real OGs.</div>
+<div class="final-line last">You’ll be missed here.</div>
+<button class="close-finale" onclick="closeFinale()">← back to the gifts</button>
+</div></section>
 
 <script>
-const q='“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”';
-let typed=false;
-
-function enterStory(){
-  const s=document.getElementById('story');
-  s.classList.add('show');
-  setTimeout(()=>s.scrollIntoView({behavior:'smooth'}),80);
-  setTimeout(observeSections,120);
-}
-function observeSections(){
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        if(e.target.querySelector && e.target.querySelector('#quote') && !typed){
-          typed=true; typeQuote();
-        }
-      }
-    });
-  },{threshold:.18});
-  document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
-}
-function typeQuote(){
-  const el=document.getElementById('quoteText');
-  const box=document.getElementById('quote');
-  box.classList.add('typing');
-  let i=0;
-  const tick=()=>{
-    el.textContent=q.slice(0,i++);
-    if(i<=q.length) setTimeout(tick,28);
-    else document.getElementById('cursor').style.display='none';
-  };
-  tick();
-}
-function finishFarewell(ev){
-  const a=document.getElementById('after');
-  a.style.display='block';
-  a.scrollIntoView({behavior:'smooth',block:'center'});
-  const symbols=['♥','✦','★','✚'];
-  const r=ev.currentTarget.getBoundingClientRect();
-  const cx=r.left+r.width/2,cy=r.top+r.height/2;
-  for(let i=0;i<18;i++){
-    const s=document.createElement('span');
-    s.className='spark';s.textContent=symbols[i%symbols.length];
-    s.style.left=cx+'px';s.style.top=cy+'px';
-    const ang=Math.random()*Math.PI*2,dist=70+Math.random()*110;
-    s.style.setProperty('--x',Math.cos(ang)*dist+'px');
-    s.style.setProperty('--y',Math.sin(ang)*dist+'px');
-    s.style.color=['#f57680','#55c7c3','#a99bd8','#f2b84b'][i%4];
-    document.body.appendChild(s);setTimeout(()=>s.remove(),950);
-  }
-}
+const q='“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”';let typed=false;
+function enterStory(){const s=document.getElementById('story');s.classList.add('show');setTimeout(()=>{s.scrollIntoView({behavior:'smooth'});observe()},100)}
+function observe(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.contains(document.getElementById('quote'))&&!typed){typed=true;typeQuote()}}}),{threshold:.14});document.querySelectorAll('.reveal').forEach(x=>io.observe(x))}
+function typeQuote(){const el=document.getElementById('typed'),box=document.getElementById('quote');box.classList.add('typing');let i=0;(function tick(){el.textContent=q.slice(0,i++);if(i<=q.length)setTimeout(tick,27);else document.getElementById('cursor').style.display='none'})()}
+function openGift(id){document.querySelectorAll('.drawer').forEach(x=>{if(x.id!=='gift-'+id)x.classList.remove('open')});const d=document.getElementById('gift-'+id);d.classList.toggle('open');if(d.classList.contains('open'))setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'center'}),80)}
+function showFinale(){const f=document.getElementById('finale');f.classList.add('show');f.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';f.scrollTop=0}
+function closeFinale(){const f=document.getElementById('finale');f.classList.remove('show');f.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 </script>
-</body>
-</html>
+</body></html>
