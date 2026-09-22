@@ -22,3 +22,15 @@ body.sheet-open{overflow:hidden}
 
 .sound-toggle{position:fixed;z-index:70;top:calc(14px + env(safe-area-inset-top));right:14px;border:1px solid #d8e7f1;border-radius:999px;padding:10px 13px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#6f879a;font-size:11px;font-weight:850;letter-spacing:.06em;box-shadow:0 8px 22px rgba(66,103,132,.12);cursor:pointer;transition:.2s ease}
 .sound-toggle.on{background:#eefaf8;color:#3b8f8c;border-color:#bfe9e5}
+
+/* Powerful Websites drawer */
+.web-list{display:grid;gap:10px;margin-top:16px}
+.web-item{display:block;text-decoration:none;border:1px solid #dfeaf2;border-radius:18px;padding:15px;background:#fbfdff;color:#355f84;transition:transform .18s ease,box-shadow .18s ease}
+.web-item:active{transform:scale(.985)}
+.web-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.web-name{font-weight:900;color:#2f6091}
+.web-badge{font-size:10px;font-weight:900;letter-spacing:.06em;padding:5px 8px;border-radius:999px;background:#eef6fb;color:#5f809a;white-space:nowrap}
+.web-desc{font-size:13px;line-height:1.45;color:#6d8396;margin-top:5px}
+.web-random{margin-top:14px;border:0;border-radius:15px;padding:12px 14px;width:100%;background:#315f8c;color:white;font-weight:850;cursor:pointer}
+.web-pick{margin-top:12px;padding:13px;border-radius:15px;background:#fff7dc;color:#5b6f7f;font-size:13px;line-height:1.45;display:none}
+.web-pick.show{display:block}
