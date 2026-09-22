@@ -52,19 +52,23 @@
 
 <div class="drawer" id="gift-web"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button>
 <h3>🌐 Powerful Websites</h3>
-<p>A small Internet Drawer: useful, weird, beautiful, or oddly specific websites that make you go, “wait… this exists?”</p>
-<div class="web-list">
-<a class="web-item" href="https://www.krea.ai/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Krea</span><span class="web-badge">🪄 MAGIC</span></div><div class="web-desc">Real-time AI visuals and image manipulation.</div></a>
-<a class="web-item" href="https://palette.fm/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Palette.fm</span><span class="web-badge">💎 GEM</span></div><div class="web-desc">Colourise old black-and-white photos with AI.</div></a>
-<a class="web-item" href="https://asoftmurmur.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">A Soft Murmur</span><span class="web-badge">🧰 KEEP THIS</span></div><div class="web-desc">Mix rain, thunder, waves and ambient sounds for focus.</div></a>
-<a class="web-item" href="https://stellarium-web.org/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Stellarium Web</span><span class="web-badge">🐇 RABBIT HOLE</span></div><div class="web-desc">An interactive planetarium in your browser.</div></a>
-<a class="web-item" href="https://artsandculture.google.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Google Arts & Culture</span><span class="web-badge">🌍 EXPLORE</span></div><div class="web-desc">Museums, artworks and cultural collections from around the world.</div></a>
-<a class="web-item" href="https://ncase.me/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Ncase</span><span class="web-badge">🧠 LEARN</span></div><div class="web-desc">Interactive explanations of surprisingly deep ideas.</div></a>
-<a class="web-item" href="https://musiclab.chromeexperiments.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">Chrome Music Lab</span><span class="web-badge">🎧 PLAY</span></div><div class="web-desc">Small, playful experiments with music and sound.</div></a>
-<a class="web-item" href="https://theuselessweb.com/" target="_blank" rel="noopener"><div class="web-top"><span class="web-name">The Useless Web</span><span class="web-badge">🗑️ UNHINGED</span></div><div class="web-desc">One button. Somewhere gloriously pointless.</div></a>
+<p>Your full Internet Drawer — <strong>100 websites</strong> worth knowing, ranging from genuinely useful to completely unnecessary.</p>
+
+<div class="catalog-toolbar">
+  <input id="webSearch" class="web-search" type="search" placeholder="Search all 100…" oninput="renderCatalog()" autocomplete="off">
+  <div class="catalog-meta"><span>Browse the catalogue</span><strong id="catalogCount">100 / 100</strong></div>
+  <div class="filter-row" id="categoryFilters"></div>
 </div>
-<button class="web-random" onclick="pickWebsite()">SURPRISE ME</button>
+
+<div class="featured-title">FEATURED PICKS</div>
+<div class="featured-list" id="featuredWebsites"></div>
+
+<button class="web-random" onclick="surpriseWebsite()">🎲 SURPRISE ME</button>
 <div class="web-pick" id="webPick"></div>
+
+<div class="catalog-divider"></div>
+<div class="featured-title">ALL 100</div>
+<div class="catalog-list" id="catalogList"></div>
 </div>
 
 <div class="drawer" id="gift-pro"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeGift()" aria-label="Close">×</button><h3>Syahmi App Approval System™</h3><div class="lab"><p>Proposed intervention:</p><strong>Build another unnecessary webapp</strong><br><br>
@@ -91,7 +95,7 @@
 <button class="close-finale" onclick="closeFinale()">← back to the gifts</button>
 </div></section>
 
-<script>
+<script src="websites.js"></script>\n<script>
 const q='“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”';let typed=false;
 function enterStory(){playChime();const s=document.getElementById('story');s.classList.add('show');setTimeout(()=>{s.scrollIntoView({behavior:'smooth'});observe()},100)}
 function observe(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.contains(document.getElementById('quote'))&&!typed){typed=true;typeQuote()}}}),{threshold:.14});document.querySelectorAll('.reveal').forEach(x=>io.observe(x))}
