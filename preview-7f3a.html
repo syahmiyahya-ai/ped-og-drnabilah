@@ -5,7 +5,7 @@
 <meta name="theme-color" content="#fffdfb"><title>Dr Nabilah — One Last Webapp</title>
 <link rel="stylesheet" href="gift.css">
 </head>
-<body><button class="sound-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle sound">♪ SOUND OFF</button>
+<body><div class="music-control"><button class="sound-toggle" id="soundToggle" onclick="toggleSong()" aria-label="Play or pause background song">♫ PLAY SONG</button><button class="captions-toggle" id="captionsToggle" onclick="toggleCaptions()" aria-label="Toggle farewell captions">CC ON</button></div><audio id="journeySong" preload="metadata" src="Where_Great_Journeys_Begin.m4a" loop></audio><div class="lyric-bar" id="lyricBar" aria-live="off"><span id="lyricText">A new chapter begins.</span></div>
 <div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 <div class="wrap">
 <section class="hero"><div class="hero-card">
@@ -97,11 +97,11 @@
 
 <script src="websites.js"></script>\n<script>
 const q='“syahmi, chill2 dulu.. belajar clinical management dulu hahaha”';let typed=false;
-function enterStory(){playChime();const s=document.getElementById('story');s.classList.add('show');setTimeout(()=>{s.scrollIntoView({behavior:'smooth'});observe()},100)}
+function enterStory(){startSong();const s=document.getElementById('story');s.classList.add('show');setTimeout(()=>{s.scrollIntoView({behavior:'smooth'});observe()},100)}
 function observe(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.contains(document.getElementById('quote'))&&!typed){typed=true;typeQuote()}}}),{threshold:.14});document.querySelectorAll('.reveal').forEach(x=>io.observe(x))}
 function typeQuote(){const el=document.getElementById('typed'),box=document.getElementById('quote');box.classList.add('typing');let i=0;(function tick(){el.textContent=q.slice(0,i++);if(i<=q.length)setTimeout(tick,27);else document.getElementById('cursor').style.display='none'})()}
 let activeGift=null,startY=0,dragging=false;
-function openGift(id){playUnlock();
+function openGift(id){
   document.querySelectorAll('.drawer').forEach(x=>x.classList.remove('open'));
   const d=document.getElementById('gift-'+id);
   activeGift=d;
@@ -149,34 +149,46 @@ function pickWebsite(){
  box.innerHTML='<strong>'+p[0]+'</strong><br>'+p[2]+'<br><a href="'+p[1]+'" target="_blank" rel="noopener">OPEN WEBSITE →</a>';
  box.classList.add('show');
 }
-function showFinale(){playFinale();const f=document.getElementById('finale');f.classList.add('show');f.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';f.scrollTop=0}
+function showFinale(){const f=document.getElementById('finale');f.classList.add('show');f.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';f.scrollTop=0}
 function closeFinale(){const f=document.getElementById('finale');f.classList.remove('show');f.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 
-let audioCtx=null,soundOn=false,ambientNodes=[];
-function getAudio(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx}
-function tone(freq,start,dur,vol,type='sine'){
- if(!soundOn)return;
- const a=getAudio(),o=a.createOscillator(),g=a.createGain();
- o.type=type;o.frequency.value=freq;
- g.gain.setValueAtTime(0,a.currentTime+start);
- g.gain.linearRampToValueAtTime(vol,a.currentTime+start+.02);
- g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+start+dur);
- o.connect(g).connect(a.destination);o.start(a.currentTime+start);o.stop(a.currentTime+start+dur+.05);
+let captionsOn=true;
+const farewellCaptions=[
+[0,'Where great journeys begin.'],
+[12,'Okay Dr, last webapp. Promise.'],
+[27,'“Syahmi, chill2 dulu…”'],
+[42,'Some advice stays with you.'],
+[58,'Thank you for answering all my random questions.'],
+[73,'And entertaining all the unnecessary apps.'],
+[88,'For noticing when I was having a difficult time.'],
+[104,'For asking if I was okay.'],
+[119,'For listening.'],
+[135,'For helping me find my feet in PED.'],
+[153,'All the best for your studies, Dr Nabilah.'],
+[168,'New chapter. You’ll be missed here.']
+];
+const song=document.getElementById('journeySong');
+function syncCaption(){
+ if(!captionsOn)return;
+ const t=song.currentTime;
+ const line=farewellCaptions.filter(c=>c[0]<=t).slice(-1)[0]||farewellCaptions[0];
+ const el=document.getElementById('lyricText');
+ if(el.textContent!==line[1]){el.classList.remove('caption-in');void el.offsetWidth;el.textContent=line[1];el.classList.add('caption-in');}
 }
-function playChime(){tone(523.25,0,.45,.035);tone(659.25,.12,.5,.03);tone(783.99,.24,.65,.026)}
-function playUnlock(){tone(659.25,0,.22,.022);tone(880,.08,.32,.018)}
-function playFinale(){
- if(!soundOn)return;
- const notes=[261.63,329.63,392,523.25,392,329.63];
- notes.forEach((n,i)=>tone(n,i*.48,.9,.012,'sine'));
- setTimeout(()=>{if(soundOn){tone(261.63,0,2.4,.009);tone(392,0,2.4,.007)}},2600);
-}
-function toggleSound(){
- soundOn=!soundOn;
+function updateSongButton(){
  const b=document.getElementById('soundToggle');
- b.textContent=soundOn?'♪ SOUND ON':'♪ SOUND OFF';
- b.classList.toggle('on',soundOn);
- if(soundOn){const a=getAudio();if(a.state==='suspended')a.resume();playChime()}
+ b.textContent=song.paused?'♫ PLAY SONG':'Ⅱ PAUSE SONG';
+ b.classList.toggle('on',!song.paused);
+ document.getElementById('lyricBar').classList.toggle('visible',captionsOn&&!song.paused);
 }
+async function startSong(){
+ try{await song.play();updateSongButton();syncCaption()}
+ catch(e){document.getElementById('soundToggle').textContent='♫ PLAY SONG'}
+}
+function toggleSong(){if(song.paused)startSong();else{song.pause();updateSongButton()}}
+function toggleCaptions(){captionsOn=!captionsOn;document.getElementById('captionsToggle').textContent=captionsOn?'CC ON':'CC OFF';updateSongButton()}
+song.addEventListener('timeupdate',syncCaption);
+song.addEventListener('play',updateSongButton);
+song.addEventListener('pause',updateSongButton);
 </script>
 </body></html>
