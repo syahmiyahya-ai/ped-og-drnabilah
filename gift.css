@@ -19,3 +19,6 @@
 .drawer h3{padding-right:38px}
 body.sheet-open{overflow:hidden}
 @media(min-width:700px){.drawer{bottom:22px;border-bottom:1px solid var(--line);border-radius:28px;max-height:76svh}.sheet-backdrop{background:rgba(31,55,79,.22)}}
+
+.sound-toggle{position:fixed;z-index:70;top:calc(14px + env(safe-area-inset-top));right:14px;border:1px solid #d8e7f1;border-radius:999px;padding:10px 13px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#6f879a;font-size:11px;font-weight:850;letter-spacing:.06em;box-shadow:0 8px 22px rgba(66,103,132,.12);cursor:pointer;transition:.2s ease}
+.sound-toggle.on{background:#eefaf8;color:#3b8f8c;border-color:#bfe9e5}
